@@ -1,7 +1,7 @@
 package io.rakam.shareablereports.entity
 
 class Report {
-    private var id: Long? = null
+    var id: Long? = null
     private var reportTitle: String? = null
     private var reportDescription: String? = null
     private var reportAuthor: String? = null
@@ -13,14 +13,6 @@ class Report {
         this.reportTitle = reportTitle
         this.reportDescription = reportDescription
         this.reportAuthor = reportAuthor
-    }
-
-    fun getId(): Long? {
-        return id
-    }
-
-    fun setId(id: Long) {
-        this.id = id
     }
 
     fun getReportTitle(): String? {

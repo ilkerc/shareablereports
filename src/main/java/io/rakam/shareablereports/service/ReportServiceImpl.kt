@@ -35,7 +35,7 @@ class ReportServiceImpl(private val dbi: Jdbi) : ReportService {
     override fun update(reportId: Long, reportRequestDTO: ReportRequestDTO): ResponseDTO {
 
         val report : Report = ReportRequestDtoToRequest().convert(reportRequestDTO)
-        report.setId(reportId)
+        report.id = reportId
 
         var isUpdated = dao.update(report)
 
