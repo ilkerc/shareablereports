@@ -12,6 +12,7 @@ import javax.ws.rs.PUT
 import javax.ws.rs.Path
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import io.rakam.shareablereports.dto.ShareReportRequestDTO
 
 
 @Path("/rest/v1")
@@ -51,5 +52,29 @@ class ReportController : HttpService {
     @ApiOperation(value = "Delete report")
     fun deleteReport(@QueryParam(value = "reportId", required = true) reportId: Long): ResponseDTO {
         return service.delete(reportId)
+    }
+
+
+    @JsonRequest
+    @Path("/share/report")
+    @ApiOperation(value = "Share report")
+    fun shareReport(@BodyParam shareReportRequestDTO: ShareReportRequestDTO) :  ResponseDTO{
+        return service.shareReport(shareReportRequestDTO)
+    }
+
+    @GET
+    @JsonRequest
+    @Path("/share/report")
+    @ApiOperation(value = "Read shared report")
+    fun readSharedReport(@QueryParam(value = "reportId", required = true) reportId: Long, @HeaderParam("Authorization") authorization: String): ResponseDTO {
+        return service.readSharedReport(reportId, authorization);
+    }
+
+    @PUT
+    @JsonRequest
+    @Path("/share/report")
+    @ApiOperation(value = "Edit shared report")
+    fun editSharedReport(@QueryParam(value = "reportId", required = true) reportId: Long, @BodyParam attributes: HashMap<String,String>, @HeaderParam("Authorization") authorization: String): ResponseDTO {
+        return service.editSharedReport(reportId, authorization, attributes);
     }
 }
