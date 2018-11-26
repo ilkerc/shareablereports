@@ -160,11 +160,13 @@ PUT /rest/v1/share/report?reportId={reportId}
 
 Header Authorization Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlZGl0YWJsZU9wdGlvbnMiOlsicmVwb3J0VGl0bGUiLCJyZXBvcnREZXNjcmlwdGlvbiJdLCJyZXBvcnRJZCI6MTU0MzI2NDUxNjUwOSwiaXNzIjoiYXV0aDAiLCJleHAiOjE1NDMyNjY2NjQsImlhdCI6MTU0MzI2NjYzNH0.UlurYfgl0z6HkoRtDoHSQ_YJMrv6aC3-6XJ_Ja7-RJs
 
+```
 {
 	"reportAuthor":"author",
     "reportTitle":"title",
     "reportDescription":"description"
 }
+```
 
 ### Response
 
