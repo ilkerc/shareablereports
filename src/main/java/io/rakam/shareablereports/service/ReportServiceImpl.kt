@@ -82,7 +82,7 @@ class ReportServiceImpl(private val dbi: Jdbi) : ReportService {
         val editableOptionsArray = arrayOfNulls<String>(shareReportRequestDTO.getEditableFields()!!.size)
 
         try{
-            val token = TokenUtil.createToken(10000 * 30 , shareReportRequestDTO.getReportId(), shareReportRequestDTO.getEditableFields()!!.toArray(editableOptionsArray))
+            val token = TokenUtil.createToken(1000 * 30 , shareReportRequestDTO.getReportId(), shareReportRequestDTO.getEditableFields()!!.toArray(editableOptionsArray))
             return SuccessResponseDTO(201, ShareReportResponseDTO("/rest/v1/share/report?reportId=${shareReportRequestDTO.getReportId()}",token))
         }catch (exception: JWTCreationException){
             return FailureResponseDTO(500, "There was a problem in token creation.")

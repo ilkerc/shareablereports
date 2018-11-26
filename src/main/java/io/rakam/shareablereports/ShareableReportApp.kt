@@ -15,18 +15,21 @@ object ShareableReportApp {
 
     @JvmStatic
     fun main(args: Array<String>) {
+        var reportService = ReportServiceImpl(getJdbi())
+        var build = HttpServerBuilder()
+                .setHttpServices(HashSet<HttpService>(Arrays.asList(ReportController(reportService))))
+                .setUseEpollIfPossible(false)
+                .build()
+        build.bindAwait("127.0.0.1",8080)
+    }
 
+    fun getJdbi() : Jdbi{
         val connectionUrl = "jdbc:postgresql://localhost:5432/postgres"
         val userName = "postgres"
         val password = "mysecretpassword"
 
         var jdbi : Jdbi = PostgreSqlConfig(connectionUrl,userName,password).connection()
         jdbi.installPlugin(SqlObjectPlugin())
-
-        var build = HttpServerBuilder()
-                .setHttpServices(HashSet<HttpService>(Arrays.asList(ReportController(ReportServiceImpl(jdbi)))))
-                .setUseEpollIfPossible(false)
-                .build()
-        build.bindAwait("127.0.0.1",8080)
+        return jdbi
     }
 }

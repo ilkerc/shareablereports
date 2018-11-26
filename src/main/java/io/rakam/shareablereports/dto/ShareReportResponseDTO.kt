@@ -14,4 +14,13 @@ class ShareReportResponseDTO {
         this.resourceURL = resourceURL
         this.accessToken = accessToken
     }
+
+    fun getResourceURL(): String? {
+        return this.resourceURL
+    }
+
+    fun getAccessToken(): String? {
+        return this.accessToken
+    }
+
 }

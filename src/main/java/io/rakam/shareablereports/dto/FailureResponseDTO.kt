@@ -11,4 +11,8 @@ class FailureResponseDTO: ResponseDTO {
     constructor(status: Long, message: String) : super(status) {
         this.message = message
     }
+
+    fun getMessage() : String {
+        return this.message
+    }
 }

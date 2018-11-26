@@ -7,7 +7,7 @@ class ShareReportRequestDTO {
 
     constructor()
 
-    constructor(reportTitle: String?, editableFields: HashSet<String>) {
+    constructor(reportId: Long, editableFields: HashSet<String>) {
         this.reportId = reportId
         this.editableFields = editableFields
     }

@@ -11,4 +11,8 @@ class SuccessResponseDTO<T>: ResponseDTO {
     constructor(status: Long, response: T) : super(status) {
         this.response = response
     }
+
+    fun getResponse() : T{
+        return response;
+    }
 }

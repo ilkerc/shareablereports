@@ -13,4 +13,8 @@ open class ResponseDTO {
         this.timeStamp = System.currentTimeMillis()
         this.status = status
     }
+
+    fun getStatus() : Long{
+        return this.status
+    }
 }
