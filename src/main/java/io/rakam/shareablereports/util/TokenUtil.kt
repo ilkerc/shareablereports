@@ -16,7 +16,7 @@ object TokenUtil {
 
 
     @Throws(JWTCreationException::class)
-    fun createToken(expirationSecond :Long, reportId: Long, editableOptions: Array<String>) : String? {
+    fun createToken(expirationSecond: Long, reportId: Long, editableOptions: Array<String>): String {
         val algorithm = Algorithm.HMAC256(secretKeyConst)
         return JWT.create().withIssuer(issuerConst)
                            .withIssuedAt(Date())
@@ -35,7 +35,6 @@ object TokenUtil {
         var editableOptions = jwt.getClaim(editableOptionsConst).asArray(String::class.java)
 
         return JWTTokenInfo(editableOptions, reportId)
-
     }
 }
 

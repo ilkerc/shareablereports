@@ -20,9 +20,9 @@ interface ReportRepository {
 
     @SqlUpdate("UPDATE report SET report_title = :reportTitle, report_description = :reportDescription, report_author = :reportAuthor " +
             "WHERE id = :id")
-    fun update(@BindBean report: Report) : Boolean
+    fun update(@BindBean report: Report): Boolean
 
     @SqlUpdate("DELETE FROM report WHERE id = :id")
-    fun delete(@Bind("id") id: Long?): Boolean
+    fun delete(@Bind("id") id: Long): Boolean
 
 }

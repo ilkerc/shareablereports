@@ -2,7 +2,6 @@ package io.rakam.shareablereports.controller
 
 import io.rakam.shareablereports.dto.ReportRequestDTO
 import io.rakam.shareablereports.dto.ResponseDTO
-import io.rakam.shareablereports.entity.Report
 import io.rakam.shareablereports.service.ReportService
 import org.rakam.server.http.HttpService
 import org.rakam.server.http.annotations.*
@@ -10,19 +9,11 @@ import javax.ws.rs.DELETE
 import javax.ws.rs.GET
 import javax.ws.rs.PUT
 import javax.ws.rs.Path
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.rakam.shareablereports.dto.ShareReportRequestDTO
 
 
 @Path("/rest/v1")
-class ReportController : HttpService {
-
-    private val service: ReportService
-
-    constructor(service: ReportService) : super() {
-        this.service = service
-    }
+class ReportController(private val service: ReportService) : HttpService() {
 
     @JsonRequest
     @Path("/report")
@@ -36,7 +27,7 @@ class ReportController : HttpService {
     @Path("/report")
     @ApiOperation(value = "Read report")
     fun readReport(@QueryParam(value = "reportId", required = true) reportId: Long): ResponseDTO {
-        return service.get(reportId);
+        return service.get(reportId)
     }
 
     @PUT
@@ -67,7 +58,7 @@ class ReportController : HttpService {
     @Path("/share/report")
     @ApiOperation(value = "Read shared report")
     fun readSharedReport(@QueryParam(value = "reportId", required = true) reportId: Long, @HeaderParam("Authorization") authorization: String): ResponseDTO {
-        return service.readSharedReport(reportId, authorization);
+        return service.readSharedReport(reportId, authorization)
     }
 
     @PUT
@@ -75,6 +66,6 @@ class ReportController : HttpService {
     @Path("/share/report")
     @ApiOperation(value = "Edit shared report")
     fun editSharedReport(@QueryParam(value = "reportId", required = true) reportId: Long, @BodyParam attributes: HashMap<String,String>, @HeaderParam("Authorization") authorization: String): ResponseDTO {
-        return service.editSharedReport(reportId, authorization, attributes);
+        return service.editSharedReport(reportId, authorization, attributes)
     }
 }

@@ -23,7 +23,7 @@ object ShareableReportApp {
         build.bindAwait("127.0.0.1",8080)
     }
 
-    fun getJdbi() : Jdbi{
+    fun getJdbi(): Jdbi{
         val connectionUrl = "jdbc:postgresql://localhost:5432/postgres"
         val userName = "postgres"
         val password = "mysecretpassword"

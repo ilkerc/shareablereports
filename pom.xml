@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <netty-rest.version>0.107-SNAPSHOT</netty-rest.version>
+        <netty-rest.version>0.106</netty-rest.version>
         <javax.ws.rs-api.version>2.0.1</javax.ws.rs-api.version>
         <kotlin.version>1.2.71</kotlin.version>
     </properties>

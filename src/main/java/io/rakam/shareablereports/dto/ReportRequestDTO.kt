@@ -1,20 +1,11 @@
 package io.rakam.shareablereports.dto
 
-class ReportRequestDTO {
+class ReportRequestDTO(
+        private var reportTitle: String,
+        private var reportDescription: String,
+        private var reportAuthor: String) {
 
-    private var reportTitle: String? = null
-    private var reportDescription: String? = null
-    private var reportAuthor: String? = null
-
-    constructor()
-
-    constructor(reportTitle: String?, reportDescription: String?, reportAuthor: String?) {
-        this.reportTitle = reportTitle
-        this.reportDescription = reportDescription
-        this.reportAuthor = reportAuthor
-    }
-
-    fun getReportTitle(): String? {
+    fun getReportTitle(): String {
         return reportTitle
     }
 
@@ -22,19 +13,19 @@ class ReportRequestDTO {
         this.reportTitle = reportTitle
     }
 
-    fun getReportDescription(): String? {
+    fun getReportDescription(): String {
         return reportDescription
     }
 
-    fun setReportDescription(reportDescription: String?) {
+    fun setReportDescription(reportDescription: String) {
         this.reportDescription = reportDescription
     }
 
-    fun getReportAuthor(): String? {
+    fun getReportAuthor(): String {
         return reportAuthor
     }
 
-    fun setReportAuthor(reportAuthor: String?) {
+    fun setReportAuthor(reportAuthor: String) {
         this.reportAuthor = reportAuthor
     }
 

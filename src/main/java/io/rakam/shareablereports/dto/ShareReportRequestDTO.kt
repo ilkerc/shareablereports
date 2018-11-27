@@ -1,16 +1,8 @@
 package io.rakam.shareablereports.dto
 
-class ShareReportRequestDTO {
-
-    private var reportId: Long = 0
-    private var editableFields:  HashSet<String>? = null
-
-    constructor()
-
-    constructor(reportId: Long, editableFields: HashSet<String>) {
-        this.reportId = reportId
-        this.editableFields = editableFields
-    }
+class ShareReportRequestDTO (
+        private var reportId: Long,
+        private var editableFields: HashSet<String>) {
 
     fun getReportId(): Long {
         return this.reportId
@@ -31,5 +23,4 @@ class ShareReportRequestDTO {
     override fun toString(): String {
         return "ShareReportRequestDTO(reportId=$reportId, editableFields=$editableFields)"
     }
-
 }
