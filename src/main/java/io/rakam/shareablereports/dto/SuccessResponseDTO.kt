@@ -2,14 +2,8 @@ package io.rakam.shareablereports.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-class SuccessResponseDTO<T>: ResponseDTO {
-
-    @JsonProperty("response")
-    private val response: T
-
-    constructor(status: Long, response: T): super(status = status) {
-        this.response = response
-    }
+class SuccessResponseDTO<T>(status: Long, @JsonProperty("response")
+private val response: T) : ResponseDTO(status = status) {
 
     fun getResponse(): T{
         return response;
